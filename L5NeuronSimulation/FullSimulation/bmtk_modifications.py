@@ -11,7 +11,7 @@ def step(self, sim, tstep):
         for gid in self._local_gids:
             pop_id = self._gid_map.get_pool_id(gid)
             cell = sim.net.get_cell_gid(gid)
-            import pdb; pdb.set_trace()
+            #import pdb; pdb.set_trace()
             for var_name in self._variables:
                 if '.' in var_name:
                     seg_vals = [getattr(getattr(seg, var_name.split('.')[0], None),var_name.split('.')[1],None) for seg in cell.get_segments()]
