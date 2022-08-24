@@ -197,4 +197,4 @@ if __name__ == "__main__":
         save_epscs = partial(record_all_vclamps, durs = [1000000, 0, 0], amps = [0, 0, 0], rs=0.01)
         callbacks.append(save_epscs)
 
-    callback_returns = run.run_network(callbacks, v_report_all = False)#make v_report_all True to save all segments
+    callback_returns = run.run_network(callbacks, v_report_all = True)#make v_report_all True to save all segments
