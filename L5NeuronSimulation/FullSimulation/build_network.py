@@ -225,7 +225,7 @@ class SimulationBuilder:
                         dL = self.params["dL"],#target length (um) of segments
                         spikes_threshold=-10,
                         file_current_clamp=self.file_current_clamp,
-                        spikes_inputs=[('exc_stim', 'exc_stim_spikes.h5'), ('prox_inh_stim', 'prox_inh_stim_spikes.h5'), ('dist_inh_stim', 'dist_inh_stim_spikes.h5')],
+                        spikes_inputs=[('exc_stim', 'exc_stim_spikes2.h5'), ('prox_inh_stim', 'prox_inh_stim_spikes.h5'), ('dist_inh_stim', 'dist_inh_stim_spikes.h5')],
                         components_dir='../biophys_components',
                         compile_mechanisms=True)
 
@@ -599,13 +599,7 @@ class SimulationBuilder:
                 """    
                 np.random.seed(self.seed + 9)
 
-                exc_frs = self.params["exc_frs"]
-                self._gen_exc_spikes(None, 
-                                     None, 
-                                     None, 
-                                     None,
-                                     None, 
-                                     'exc_stim_spikes.h5')
+                self._gen_exc_spikes('exc_stim_spikes.h5')
 
                 inh_frs = self.params["inh_frs"]
 
@@ -652,7 +646,7 @@ class SimulationBuilder:
                         start_time=start_time)
 
         #Creates the excitatory input raster from the functional groups.
-        def _gen_exc_spikes(self, n_cells, mean_fr, std_fr, rhythmic_dict, key, fname):
+        def _gen_exc_spikes(self, fname):
                 """Generates the excitatory input raster for all of the functional groups
 
                 Parameters

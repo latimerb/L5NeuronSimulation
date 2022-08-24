@@ -5,6 +5,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal as ss
 import scipy
+import json
+
+with open('L5NetParams.json') as f:
+    params = json.load(f)
 
 df = pd.read_csv('Connections.csv')
 
@@ -17,8 +21,8 @@ cells_to_change = np.random.choice(df[(df['Source Population']=='exc_stim')&
 
 depth_of_mod = 1
 freq = 64
-phase= 0#2*np.pi/3
-tsim = 400 # seconds
+phase = 0#2*np.pi/3
+tsim = params['time']['stop'] # seconds
 t = np.arange(0,tsim,.001)
 
 mod_trace = depth_of_mod*(np.sin((2 * np.pi * freq * t ) - phase) + 1) + (1-depth_of_mod)
