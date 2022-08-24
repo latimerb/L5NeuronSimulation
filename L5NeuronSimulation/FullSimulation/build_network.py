@@ -598,7 +598,14 @@ class SimulationBuilder:
                 """Generates excitatory and inhibitory input rasters
                 """    
                 np.random.seed(self.seed + 9)
-                self._gen_exc_spikes('exc_stim_spikes.h5')
+
+                exc_frs = self.params["exc_frs"]
+                self._gen_exc_spikes(None, 
+                                     None, 
+                                     None, 
+                                     None,
+                                     None, 
+                                     'exc_stim_spikes.h5')
 
                 inh_frs = self.params["inh_frs"]
 
@@ -645,7 +652,7 @@ class SimulationBuilder:
                         start_time=start_time)
 
         #Creates the excitatory input raster from the functional groups.
-        def _gen_exc_spikes(self, fname):
+        def _gen_exc_spikes(self, n_cells, mean_fr, std_fr, rhythmic_dict, key, fname):
                 """Generates the excitatory input raster for all of the functional groups
 
                 Parameters
@@ -654,7 +661,7 @@ class SimulationBuilder:
                     name of the file to save the rasters in (.h5)
                 """    
                 #distribution used for generating excitatory firing rates.    
-                levy_dist = partial(st.levy_stable.rvs, alpha=1.37, beta=-1.00, loc=0.92*2, scale=0.44, size=1)
+                levy_dist = partial(st.levy_stable.rvs, alpha=1.37, beta=-1.00, loc=0.92, scale=0.44, size=1)
 
                 length = self.params["time"]["stop"] - self.params["time"]["start"]
                 buffer = self.params["time"]["start"]

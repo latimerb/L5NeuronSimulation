@@ -199,6 +199,6 @@ def make_save_spikes(writer, exp, dist, numUnits=100,rateProf=None,start_id=0,st
         numbPoints = scipy.stats.poisson(rate_temp/1000).rvs()#Poisson number of points
 
         simSpks=np.where(numbPoints>0)[0]
-
+        
         writer.append_repeat("node_ids", i + start_id, len(simSpks))
         writer.append_ds(simSpks + start_time, "timestamps")

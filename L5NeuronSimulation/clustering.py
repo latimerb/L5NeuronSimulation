@@ -15,7 +15,6 @@ from mpl_toolkits import mplot3d
 import matplotlib.pyplot as plt
 from functools import partial 
 
-np.random.seed(42)
 
 def calc_dist(p1, p2):
     """Returns the distance between two points.

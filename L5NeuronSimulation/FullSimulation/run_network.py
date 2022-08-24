@@ -179,7 +179,7 @@ if __name__ == "__main__":
     #p.multisplit(1)
 
 
-    #modify_bmtk()
+    modify_bmtk()
 
     
     synapses.load()

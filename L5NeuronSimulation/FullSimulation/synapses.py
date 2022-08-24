@@ -8,7 +8,6 @@ from neuron import h
 import random
 import numpy as np
 
-np.random.seed(42)
 generators = []
 
 pyrWeight_m = 0.45#0.229#0.24575#0.95
@@ -511,7 +510,6 @@ def pyr2pyr(syn_params, xs, secs):
     :param secs: target sections
     :return: list of NEURON synpase objects
     """
-    np.random.seed(2129)
     syns = []
     for x, sec in zip(xs, secs):
         syn = Pyr2Pyr(syn_params, x, sec)
