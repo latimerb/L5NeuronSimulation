@@ -223,9 +223,14 @@ class SimulationBuilder:
                         tstop=self.params["time"]["stop"] * 1000.0,
                         report_vars=self.params["record_cellvars"]["vars"],
                         dL = self.params["dL"],#target length (um) of segments
-                        spikes_threshold=-10,
-                        file_current_clamp=self.file_current_clamp,
-                        spikes_inputs=[('exc_stim', 'exc_stim_spikes2.h5'), ('prox_inh_stim', 'prox_inh_stim_spikes.h5'), ('dist_inh_stim', 'dist_inh_stim_spikes.h5')],
+                        current_clamp = {
+				'amp': 1.350,
+				'delay': 500,
+				'duration': 1000,
+				'gids': "all"
+			},
+			spikes_threshold=-10,
+                        spikes_inputs=[('exc_stim', 'exc_stim_spikes.h5'), ('prox_inh_stim', 'prox_inh_stim_spikes.h5'), ('dist_inh_stim', 'dist_inh_stim_spikes.h5')],
                         components_dir='../biophys_components',
                         compile_mechanisms=True)
 

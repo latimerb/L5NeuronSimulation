@@ -10,8 +10,8 @@ import numpy as np
 
 generators = []
 
-pyrWeight_m = 0.45#0.229#0.24575#0.95
-pyrWeight_s = 0.345#1.3
+pyrWeight_m = 0.000000045#0.229#0.24575#0.95
+pyrWeight_s = 0.0000000345#1.3
 
 def lognormal(m, s):
         mean = np.log(m) - 0.5 * np.log((s/m)**2+1)
@@ -268,17 +268,17 @@ def Int2Pyr(syn_params, sec_x, sec_id):
     #Assigns release probabilty and conductance based on location of the synapse.
     if sec_type == "soma":
         lsyn.P_0 = 0.25#np.clip(np.random.normal(0.877, 0.052), 0, 1)
-        lsyn.initW = 0.06#62.31
+        lsyn.initW = 0*0.06#62.31
     if sec_type == "dend":
         if dist <= 50:
             lsyn.P_0 = 0.25#np.clip(np.random.normal(0.877, 0.052), 0, 1)
-            lsyn.initW = 0.1#62.31
+            lsyn.initW = 0*0.1#62.31
         else:
             lsyn.P_0 = 0.25#np.clip(np.random.normal(0.72, 0.1), 0, 1)
-            lsyn.initW = 0.1#42.6#66.6
+            lsyn.initW = 0*0.1#42.6#66.6
     if sec_type == "apic":
         lsyn.P_0 = 0.25#np.clip(np.random.normal(0.72, 0.1), 0, 1)
-        lsyn.initW = 0.1#118.7#168.7
+        lsyn.initW = 0*0.1#118.7#168.7
 
     #Short Term Plasticity
     #######################
