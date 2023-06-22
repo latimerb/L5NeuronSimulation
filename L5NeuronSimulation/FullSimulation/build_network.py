@@ -223,8 +223,11 @@ class SimulationBuilder:
                         tstop=self.params["time"]["stop"] * 1000.0,
                         report_vars=self.params["record_cellvars"]["vars"],
                         dL = self.params["dL"],#target length (um) of segments
-                        current_clamp = {
-				'amp': 1.350,
+                        #file_current_clamp={
+                        #    "input_file": "invivoRin.h5"
+                        #},
+			current_clamp = {
+		 		'amp': -1,
 				'delay': 500,
 				'duration': 1000,
 				'gids': "all"
