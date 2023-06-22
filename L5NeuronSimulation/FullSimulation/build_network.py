@@ -226,12 +226,12 @@ class SimulationBuilder:
                         #file_current_clamp={
                         #    "input_file": "invivoRin.h5"
                         #},
-			current_clamp = {
-		 		'amp': -1,
-				'delay': 500,
-				'duration': 1000,
-				'gids': "all"
-			},
+			#current_clamp = {
+		 	#	'amp': -1,
+			#	'delay': 500,
+			#	'duration': 1000,
+			#	'gids': "all"
+			#},
 			spikes_threshold=-10,
                         spikes_inputs=[('exc_stim', 'exc_stim_spikes.h5'), ('prox_inh_stim', 'prox_inh_stim_spikes.h5'), ('dist_inh_stim', 'dist_inh_stim_spikes.h5')],
                         components_dir='../biophys_components',
